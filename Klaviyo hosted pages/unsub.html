@@ -1,0 +1,260 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>STOKKE</title>
+
+    <style>
+        /* Reset only what we need */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+/* Center everything */
+body {
+    display: flex;
+    justify-content: center;
+    background: #f5f5f5;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Wrapper */
+.unsubscribe-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive content card */
+.unsubscribe-card {
+    background: #ffffff;
+    min-width: 400px;
+    width: 100%;              /* full width on small screens */
+    max-width: 600px;         /* flexible max width */
+    padding: 40px 24px;       /* responsive internal padding */
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+
+/* Center the internal "rows" */
+.row-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Text alignment helper */
+.text-center {
+    width: 100%;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 550px) {
+    .fs20 {
+        font-size: 20px!important;
+    }
+    .unsubscribe-card {
+    min-width: 100%;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="unsubscribe-wrapper">
+        <form method="post" style="max-width: 100%;">
+
+
+          <!-- REQUIRED for proper unsubscribe -->
+    <input type="hidden" name="$unsubscribe" value="true">
+
+    <input type="hidden" name="$unsubscribed_url"
+       value="https://stokke-gmbh.myklpages.com/p/unsubscribe_confirm" />
+
+
+           <!-- REQUIRED: Redirect settings block -->
+    <div class="klaviyo-form-settings"
+         data-after-submit="redirect"
+         data-redirect-url="https://stokke-gmbh.myklpages.com/p/unsubscribe_confirm">
+    </div>
+
+            <div class="unsubscribe-card">
+
+                <!-- Logo -->
+                <div class="row-center">
+                    <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R8Zbdd/images/66900a85-bdcc-44dc-b363-ed9812dca874.png"
+                         alt="Logo"
+                         style="width:200px; max-width:100%; margin:0 auto;">
+                </div>
+
+                <!-- Heading -->
+                <div class="row-center">
+                    <div class="text-center fs20" style="font-family:'Helvetica Neue', Arial; color:#141414;padding-top:26px;">
+                        <span style="font-size:20px;" class="fs20">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+   We vinden het jammer dat je vertrekt.
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+   Es tut uns leid, dass du gehst.
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+   Ci dispiace vederti andare.
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+   Nous sommes tristes de vous voir partir.
+ {% elif locale == "es-ES" %}
+   Lamentamos que te vayas.
+ {% elif locale == "no-NO" %}
+   Vi synes det er trist at du drar.
+ {% elif locale == "sv-SE" %}
+   Vi är ledsna att se dig gå.
+ {% elif locale == "da-DK" %}
+   Vi er kede af at se dig gå.
+{% elif locale == "pl-PL" %}
+   Przykro nam, że odchodzisz.
+{% elif locale == "tr-TR" %}
+   Gitmenize üzüldük.
+{% elif locale == "pt-BR" %}
+   Ficamos tristes em ver você partir.
+{% elif locale == "ru-RU" %}
+   Нам жаль, что вы уходите.
+ {% elif locale == "ko-KR" %}
+  이메일 입력 시 구독이 해지됩니다.
+ {% elif locale == "ja-JP" or locale == "ja" %}
+  またのご利用をお待ちしております。
+{% elif locale == "zh-CN" or locale == "zh" %}
+   很遗憾看到您离开。
+{% elif locale == "zh-TW" or locale == "zh-HK" %}
+   很遺憾看到您離開。
+ {% else %}
+   We are sad to see you go
+ {% endif %}
+{% endwith %}
+<br><br>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Email field -->
+                <div class="row-center">
+                    <div style="width:100%; font-family:'Helvetica Neue', Arial;">
+
+                        <label style="font-size:16px; font-weight:700; margin-bottom:8px;">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  E-mail
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+   E-Mail
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+   Email
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+   E-mail
+ {% elif locale == "es-ES" %}
+   Correo electrónico
+ {% elif locale == "no-NO" %}
+  E-post
+ {% elif locale == "sv-SE" %}
+   E-post
+ {% elif locale == "da-DK" %}
+   E-mail
+{% elif locale == "pl-PL" %}
+  E-mail
+{% elif locale == "tr-TR" %}
+  E-posta
+{% elif locale == "pt-BR" %}
+  E-mail
+{% elif locale == "ru-RU" %}
+  Электронная почта
+ {% elif locale == "ko-KR" %}
+  이메일
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ メール
+{% elif locale == "zh-CN" or locale == "zh" %}
+  邮箱
+{% elif locale == "zh-TW" or locale == "zh-HK" %}
+  電子郵件
+ {% else %}
+   Email
+ {% endif %}
+{% endwith %}
+                            <span style="color:#E74C3C">*</span>
+                        </label>
+
+                        <input
+    type="email"
+    id="email"
+    name="$email"
+    value="{{ person.email }}"
+    aria-required="true"
+    style="width:100%; height:50px; padding-left:16px; border:1px solid #ccc; font-size:16px;"
+readonly>
+                    </div>
+                </div>
+
+
+
+                <!-- Unsubscribe button -->
+                <div class="row-center" style="margin-top:20px;">
+                    <button type="submit"
+                        style="font-family:HelveticaNeue, Helvetica, Arial, sans-serif;
+                               font-size:16px;
+                               font-weight:400;
+                               color:#fff;
+                               background:#000;
+                               border-radius:40px;
+                               border:0;
+                               height:50px;
+                               width:100%;
+                               cursor:pointer;">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  Afmelden
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+  Abmelden
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+  Annulla iscrizione
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+   Se désabonner
+ {% elif locale == "es-ES" %}
+  Cancelar suscripción
+ {% elif locale == "no-NO" %}
+  Avslutt abonnement
+ {% elif locale == "sv-SE" %}
+  Avsluta prenumeration
+ {% elif locale == "da-DK" %}
+   Afmeld
+{% elif locale == "pl-PL" %}
+  Wypisz się
+{% elif locale == "tr-TR" %}
+  Abonelikten çık
+{% elif locale == "pt-BR" %}
+  Cancelar inscrição
+{% elif locale == "ru-RU" %}
+  Отписаться
+ {% elif locale == "ko-KR" %}
+  구독 취소
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ 登録解除
+{% elif locale == "zh-CN" or locale == "zh" %}
+ 取消订阅
+{% elif locale == "zh-TW" or locale == "zh-HK" %}
+  取消訂閱
+ {% else %}
+   Unsubscribe
+ {% endif %}
+{% endwith %}
+                    </button>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

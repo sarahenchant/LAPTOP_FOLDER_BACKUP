@@ -1,0 +1,299 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>STOKKE</title>
+
+    <style>
+        /* Reset only what we need */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+/* Center everything */
+body {
+    display: flex;
+    justify-content: center;
+    background: #f5f5f5;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Wrapper */
+.unsubscribe-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive content card */
+.unsubscribe-card {
+    background: #ffffff;
+    min-width: 400px;
+    width: 100%;              /* full width on small screens */
+    max-width: 600px;         /* flexible max width */
+    padding: 40px 24px;       /* responsive internal padding */
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+
+/* Center the internal "rows" */
+.row-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Text alignment helper */
+.text-center {
+    width: 100%;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 550px) {
+    .fs20 {
+        font-size: 20px!important;
+    }
+    .unsubscribe-card {
+    min-width: 100%;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="unsubscribe-wrapper">
+        <form method="post" style="max-width: 100%;">
+
+        <!-- REQUIRED for proper profile update to profile -->
+    <input type="hidden" name="$email" value="{{ person.email }}">
+
+    <!-- REQUIRED for proper profile update -->
+    <input type="hidden" name="$update_profile" value="true">
+
+
+    <!-- REQUIRED: tell Klaviyo which custom fields to save -->
+    <input type="hidden" name="$fields" value="pregnant_due_date">
+
+
+    <!-- REQUIRED: Redirect settings block -->
+    <input type="hidden" name="$updated_profile_url"
+       value="https://stokke-gmbh.myklpages.com/p/preferences_confirm" />
+
+
+            <div class="unsubscribe-card">
+
+                <!-- Logo -->
+                <div class="row-center">
+                    <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R8Zbdd/images/66900a85-bdcc-44dc-b363-ed9812dca874.png"
+                         alt="Logo"
+                         style="width:200px; max-width:100%; margin:0 auto;">
+                </div>
+
+                <!-- Heading -->
+                <div class="row-center">
+                    <div class="text-center fs20" style="font-family:'Helvetica Neue', Arial; color:#FB8510;padding-top:26px;">
+                        <span style="font-size:30px;" class="fs20">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  Let's grow together
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+  Lasst uns gemeinsam wachsen
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+  Cresciamo insieme
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+ Grandissons ensemble
+ {% elif locale == "es-ES" %}
+ Vamos a crecer juntos
+ {% elif locale == "no-NO" %}
+  La oss utvikle oss sammen
+ {% elif locale == "sv-SE" %}
+  Väx tillsammans med oss
+ {% elif locale == "da-DK" %}
+  Lad os vokse sammen
+ {% elif locale == "ko-KR" %}
+  함께 성장해요
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ 一緒に成長しましょう
+ {% else %}
+  Let's grow together
+ {% endif %}
+{% endwith %}
+<br><br>
+                        </span>
+                    </div>
+                </div>
+
+                 <!-- Paragraph -->
+                <div class="row-center">
+                    <div class="text-center" style="font-family:'Helvetica Neue', Arial; color:#000000;padding-top:0px;">
+                        <span style="font-size:16px;">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  Vertel ons wanneer je uitgerekend bent. Dan kunnen we jou en je nieuwe gezin nóg beter helpen.
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+  Teile uns den Geburtstermin mit, damit wir dich und deine Familie besser unterstützen können.
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+  Condividi con noi la tua data prevista del parto, così potremo supportarti al meglio in questa nuova avventura.
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+ Partagez votre date prévue d'accouchement avec nous afin que nous puissions mieux vous accompagner, vous et votre nouvelle famille.
+ {% elif locale == "es-ES" %}
+ Comparte con nosotros su fecha de vencimiento para que podamos ayudarte mejor a  ti y a tu nueva familia.
+ {% elif locale == "no-NO" %}
+  Del terminen din med oss, slik at vi kan bedre støtte deg og din nye familie.
+ {% elif locale == "sv-SE" %}
+  Dela med dig av ditt beräknade förlossningsdatum så att vi kan ge dig och din familj bättre stöd.
+ {% elif locale == "da-DK" %}
+  Del din fødselstermin med os, så vi bedre kan støtte dig og din nye familie.
+ {% elif locale == "ko-KR" %}
+  여러분과 여러분의 새로운 가족을 잘 도와드릴 수 있도록 출산 예정일을 알려주세요.
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ ご出産予定日をお知らせください。お客様とご家族をしっかりサポートさせていただきます。
+ {% else %}
+  Share your due date with us so we can better support you and your new family.
+ {% endif %}
+{% endwith %}
+<br><br>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+
+                  <!-- field 1 -->
+                <div class="row-center">
+                    <div style="width:100%; font-family:'Helvetica Neue', Arial;">
+
+                        <label style="font-size:16px; font-weight:700; margin-bottom:8px;">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  Verwachte bevallingsdatum
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+  Geburtstermin
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+  Data prevista del parto
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+Date d'accouchement
+ {% elif locale == "es-ES" %}
+ Fecha prevista de parto
+ {% elif locale == "no-NO" %}
+  Termin
+ {% elif locale == "sv-SE" %}
+  Beräknat förlossningsdatum
+ {% elif locale == "da-DK" %}
+  Fødselstermin
+ {% elif locale == "ko-KR" %}
+  출산 예정일
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ 出産予定日
+ {% else %}
+  Pregnancy due date
+ {% endif %}
+{% endwith %}
+
+                        </label>
+
+<input type="date" name="pregnant_due_date"
+    aria-required="false"
+    style="width:100%; height:50px; padding-left:16px; padding-right:16px; border:1px solid #ccc; font-size:16px;text-transform: uppercase;"
+>
+                    </div>
+                </div>
+
+
+
+
+
+                 <!-- Disclaimer -->
+                <div class="row-center">
+                    <div class="text-center" style="font-family:'Helvetica Neue', Arial; color:#000000;padding-top:20px;">
+                        <span style="font-size:16px;">
+ <span>*</span>{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  Is de kleine er al? Vul dan de geboortedatum in
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+  Dein kleiner Schatz ist schon da? Dann gib bitte das Geburtsdatum ein
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+  Se il bambino è già nato, inserisci la data di nascita
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+Si votre enfant est déjà né, veuillez indiquer sa date de naissance
+ {% elif locale == "es-ES" %}
+ Si tu hijo ya ha nacido, añade su fecha de nacimiento
+ {% elif locale == "no-NO" %}
+  Hvis barnet ditt allerede er født, angi deres fødselsdato
+ {% elif locale == "sv-SE" %}
+  Om ditt barn redan är fött, ange födelsedatum
+ {% elif locale == "da-DK" %}
+  Hvis dit barn allerede er født, bedes du tilføje barnets fødselsdato
+ {% elif locale == "ko-KR" %}
+  아기가 이미 태어난 경우, 생년월일을 입력해주세요
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ すでにご出産されている場合は、お子さまの生年月日をご入力ください
+ {% else %}
+  If your child is already born, please add their birth date
+ {% endif %}
+{% endwith %}
+<br><br>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+                <!-- Submit button -->
+                <div class="row-center" style="margin-top:20px;">
+                    <button type="submit"
+                        style="font-family:HelveticaNeue, Helvetica, Arial, sans-serif;
+                               font-size:16px;
+                               font-weight:400;
+                               color:#fff;
+                               background:#000;
+                               border-radius:40px;
+                               border:0;
+                               height:50px;
+                               width:100%;
+                               cursor:pointer;">
+{% with locale=person|lookup:'$locale'|default:'en' %}
+ {% if locale == "nl-NL" or locale == "nl-BE" %}
+  Versturen
+ {% elif locale == "de-DE" or locale == "de-LU" or locale == "de-AT" or locale == "de-CH" %}
+  Senden
+ {% elif locale == "it-IT" or locale == "it-CH" %}
+  Invia
+  {% elif locale == "fr-FR" or locale == "fr-LU" or locale == "fr-CH" or locale == "fr-BE" %}
+Envoyer
+ {% elif locale == "es-ES" %}
+ Enviar
+ {% elif locale == "no-NO" %}
+  Send
+ {% elif locale == "sv-SE" %}
+  Skicka
+ {% elif locale == "da-DK" %}
+  Send
+ {% elif locale == "ko-KR" %}
+ 제출
+ {% elif locale == "ja-JP" or locale == "ja" %}
+ 登録する
+ {% else %}
+  Submit
+ {% endif %}
+{% endwith %}
+                    </button>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
